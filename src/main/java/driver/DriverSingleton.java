@@ -23,8 +23,8 @@ public class DriverSingleton {
                     "--disable-extensions", "--proxy-server='direct://'", "--proxy-bypass-list=*", "--start-maximized",
                     "--disable-gpu", "--ignore-certificate-errors");
             WebDriverManager.chromedriver().setup();
-            //driver = new ChromeDriver(options);
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
+            //driver = new ChromeDriver();
 
         }
         return driver;
