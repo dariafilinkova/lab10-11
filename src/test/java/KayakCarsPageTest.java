@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.not;
 
 public class KayakCarsPageTest extends CommonConditions {
 
-    //@Test
+    @Test
     public void testSearchCarWithoutEnteringDate() {
         KayakCarPage carPage = new KayakCarPage(driver)
                 .openPage()
