@@ -38,7 +38,7 @@ public class KayakFlightPageTest extends CommonConditions {
                 .openPage()
                 .fillSameDestinations()
                 .clickOnSearchButton();
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         Assert.assertEquals(flightsPage.getTextFromErrorFragment(),
                 EXPECTED_ERROR_MESSAGE_FRAGMENT);
         //Assert.assertTrue(flightsPage.appearErrorFragment());
