@@ -5,17 +5,6 @@ import page.KayakFlightsPage;
 public class KayakFlightPageTest extends CommonConditions {
 
     private final String EXPECTED_DESTINATION = "Paris, France (PAR)";
-    private final String EXPECTED_ERROR_MESSAGE = "Searches need at least 1 traveler";
-
-    @Test //must be 2
-    public void testNullNumberOfAdults() {
-        KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
-                .openPage()
-                .clickOnChangeAdults()
-                .incrementNumberOfAdults();
-        Assert.assertEquals(flightsPage.getTextFromErrorMessage(),
-                EXPECTED_ERROR_MESSAGE);
-    }
 
     @Test //must be the 1st
     public void testChangeDestinations() {
