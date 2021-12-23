@@ -8,7 +8,7 @@ import service.UserCreator;
 
 public class KayakTravelPageTest extends CommonConditions{
 
-    @Test //must be 3
+    //@Test //must be 3
     public void sendMessageOnEmail()  {
         User user = UserCreator.withCredentialsFromProperty();
         KayakTravelRestrictionsPage messageAfterSending = new KayakTravelRestrictionsPage(driver)

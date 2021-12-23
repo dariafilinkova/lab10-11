@@ -5,7 +5,7 @@ import page.KayakFlightsPage;
 public class KayakFlightPageTestNumberOfAdults extends CommonConditions{
     private final String EXPECTED_ERROR_MESSAGE = "Searches need at least 1 traveler";
 
-    @Test
+    //@Test
     public void testNullNumberOfAdults() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
