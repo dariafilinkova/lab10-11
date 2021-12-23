@@ -18,13 +18,13 @@ public class DriverSingleton {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--window-size=1920,1080",
-                    "--disable-extensions", "--proxy-server='direct://'", "--proxy-bypass-list=*", "--start-maximized",
-                    "--disable-gpu", "--ignore-certificate-errors");
+            //ChromeOptions options = new ChromeOptions();
+            //options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--window-size=1920,1080",
+             //       "--disable-extensions", "--proxy-server='direct://'", "--proxy-bypass-list=*", "--start-maximized",
+               //     "--disable-gpu", "--ignore-certificate-errors");
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(options);
-            //driver = new ChromeDriver();
+            //driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
 
         }
         return driver;
