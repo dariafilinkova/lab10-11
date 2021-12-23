@@ -12,8 +12,8 @@ public class KayakStaysPage extends AbstractPage {
 
     public static String BASE_URL = "https://www.kayak.com/stays";
     private static final Logger logger = LogManager.getLogger();
-    private final By searchButton = By.xpath("//button[@aria-label='Search']");
-    private static By errorFragment = By.xpath("//div[@class='dDYU-body']");
+    private final By searchButton = By.xpath("//button[contains(@aria-label,'Search')]");
+    private static By errorFragment = By.xpath("//div[contains(@class'dDYU-body'])");
 
     public KayakStaysPage(WebDriver driver) {
         super(driver);
