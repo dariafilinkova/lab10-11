@@ -6,7 +6,7 @@ public class KayakFlightPageTest extends CommonConditions {
 
     private final String EXPECTED_DESTINATION = "Paris, France (PAR)";
 
-    @Test //must be the 1st
+    //@Test //must be the 1st
     public void testChangeDestinations() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
