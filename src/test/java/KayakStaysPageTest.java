@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import page.KayakStaysPage;
 
 public class KayakStaysPageTest extends CommonConditions {
-   // @Test
+    @Test
     public void findStayWithoutDate() {
         KayakStaysPage staysPage = new KayakStaysPage(driver)
                 .openPage()
