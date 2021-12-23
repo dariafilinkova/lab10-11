@@ -28,7 +28,7 @@ public class KayakFlightPageTest extends CommonConditions {
                 EXPECTED_ERROR_MESSAGE);
     }
 
-    //@Test
+    @Test
     public void testSameInputDestinations() throws InterruptedException {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
