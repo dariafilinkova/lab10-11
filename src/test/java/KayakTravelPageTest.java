@@ -9,7 +9,7 @@ import service.UserCreator;
 public class KayakTravelPageTest extends CommonConditions{
 
     @Test
-    public void sendMessageOnEmail() throws InterruptedException {
+    public void sendMessageOnEmail()  {
         User user = UserCreator.withCredentialsFromProperty();
         KayakTravelRestrictionsPage messageAfterSending = new KayakTravelRestrictionsPage(driver)
                 .openPage()
