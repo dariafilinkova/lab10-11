@@ -26,4 +26,15 @@ public class KayakFlightPageTest extends CommonConditions {
         Assert.assertEquals(flightsPage.getTextFromDestinationFrom(),
                 EXPECTED_DESTINATION);
     }
+    //@Test
+    public void testSameInputDestinations() {
+        KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
+                .openPage()
+                .fillSameDestinations()
+                .clickOnSearchButton()
+                ;
+       // Assert.assertEquals(flightsPage.getTextFromDestinationFrom(),
+         //       EXPECTED_DESTINATION);
+
+    }
 }

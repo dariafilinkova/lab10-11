@@ -18,9 +18,11 @@ public class KayakFlightsPage extends AbstractPage {
     private final By fieldDestinationFrom = By.xpath("//input[@class='k_my-input']");
     private final By fieldDestinationTo = By.xpath("//input[@class='k_my-input' and @placeholder='To?']");
     private final By chosenDestinationTo = By.xpath("//li[contains(@aria-label,'Paris, France')]");
+    private final By chosenDestinationToSameAsFrom = By.xpath("//li[contains(@aria-label,'Lisbon, Portugal')]");
     private final By changeButton = By.xpath("//div[contains(@class,'jqOP')]");
     private final By inputDestinationTo = By.xpath("//div[contains(text(),'To?')]");
     private final By destinationAfterClickingChange=By.xpath("//div[contains(text(),'Paris, France')]");
+    private final By searchButton = By.xpath("//button[contains(@aria-label,'Search')]");
 
     public KayakFlightsPage(WebDriver driver) {
         super(driver);
@@ -87,6 +89,12 @@ public class KayakFlightsPage extends AbstractPage {
         return this;
     }
 
+    public KayakFlightsPage clickOnChosenDestinationToSameAsFrom() {
+        WebElement destinationTo = findByLocatorWithClickableCondition(chosenDestinationToSameAsFrom);
+        destinationTo.click();
+        return this;
+    }
+
     public KayakFlightsPage changeDestinations() {
         WebElement changeBtn = findByLocatorWithClickableCondition(changeButton);
         changeBtn.click();
@@ -107,6 +115,23 @@ public class KayakFlightsPage extends AbstractPage {
 
     public String getTextFromDestinationFrom() {
         return getElementText(destinationAfterClickingChange);
+    }
+
+    public KayakFlightsPage fillSameDestinations(){
+        JourneyData journeyData = JourneyCreator.journeyFromProperty();
+        clickDestinationFrom();
+        enterDestinationFrom(journeyData);
+        clickOnChosenDestinationFrom() ;
+        clickDestinationTo();
+        enterDestinationTo(journeyData);
+        clickOnChosenDestinationToSameAsFrom();
+        return this;
+    }
+
+    public KayakFlightsPage clickOnSearchButton(){
+        WebElement searchBtn = findByLocatorWithClickableCondition(searchButton);
+        searchBtn.click();
+        return this;
     }
 
 
