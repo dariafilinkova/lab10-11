@@ -17,7 +17,7 @@ public class KayakFlightPageTest extends CommonConditions {
                 EXPECTED_ERROR_MESSAGE);
     }
 
-    //@Test
+    @Test
     public void testChangeDestinations() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
