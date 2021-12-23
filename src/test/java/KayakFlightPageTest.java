@@ -7,7 +7,7 @@ public class KayakFlightPageTest extends CommonConditions {
     private final String EXPECTED_DESTINATION = "Paris, France (PAR)";
     private final String EXPECTED_ERROR_MESSAGE = "Searches need at least 1 traveler";
 
-    @Test
+    @Test //yes
     public void testNullNumberOfAdults() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
@@ -17,7 +17,7 @@ public class KayakFlightPageTest extends CommonConditions {
                 EXPECTED_ERROR_MESSAGE);
     }
 
-    @Test
+    @Test //yes
     public void testChangeDestinations() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
