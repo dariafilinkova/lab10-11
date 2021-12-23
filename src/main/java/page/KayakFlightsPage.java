@@ -20,8 +20,8 @@ public class KayakFlightsPage extends AbstractPage {
     private final By chosenDestinationTo = By.xpath("//li[contains(@aria-label,'Paris, France')]");
     private final By chosenDestinationToSameAsFrom = By.xpath("//li[contains(@aria-label,'Lisbon, Portugal')]");
     private final By changeButton = By.xpath("//div[contains(@class,'jqOP')]");
-    private final By inputDestinationTo = By.xpath("//div[contains(text(),'To?')]");
-    private final By destinationAfterClickingChange=By.xpath("//div[contains(text(),'Paris, France')]");
+    private final By inputDestinationTo = By.xpath("//div[@aria-label='Flight destination input']//div[@role='list']");
+    private final By destinationAfterClickingChange=By.xpath("//div[@class='vvTc-item-value']");
     private final By searchButton = By.xpath("//button[contains(@aria-label,'Search')]");
 
     public KayakFlightsPage(WebDriver driver) {
