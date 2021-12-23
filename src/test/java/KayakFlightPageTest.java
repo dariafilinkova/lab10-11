@@ -29,12 +29,11 @@ public class KayakFlightPageTest extends CommonConditions {
     }
 
     @Test
-    public void testSameInputDestinations() throws InterruptedException {
+    public void testSameInputDestinations() {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
                 .fillSameDestinations()
                 .clickOnSearchButton();
-        Thread.sleep(1000);
         Assert.assertEquals(flightsPage.getTextFromErrorFragment(),
                 EXPECTED_ERROR_MESSAGE_FRAGMENT);
     }

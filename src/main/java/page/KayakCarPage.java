@@ -1,6 +1,8 @@
 package page;
 
 import model.JourneyData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import service.JourneyCreator;
 
 
+
 public class KayakCarPage extends AbstractPage {
 
     public static String PAGE_URL = "https://www.kayak.com/cars";
+    private static final Logger logger = LogManager.getLogger();
 
     private final By searchButton = By.xpath("//button[@title='Search cars']");
     private final By destination = By.xpath("//div[@aria-label='Pick-up location']");
@@ -27,6 +31,7 @@ public class KayakCarPage extends AbstractPage {
 
     @Override
     public KayakCarPage openPage() {
+        logger.info("was opened KayakCar page");
         driver.get(PAGE_URL);
         return this;
     }
@@ -38,6 +43,7 @@ public class KayakCarPage extends AbstractPage {
     }
 
     public KayakCarPage search() {
+        logger.info("click search");
         WebElement searchBtn = findByLocator(searchButton);
         searchBtn.click();
         return this;

@@ -1,6 +1,5 @@
 package page;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +25,7 @@ public class KayakStaysPage extends AbstractPage {
     }
 
     public KayakStaysPage clickOnSearchButton() {
+        logger.info("click search");
         WebElement searchBtn = findByLocator(searchButton);
         searchBtn.click();
         return new KayakStaysPage(driver);

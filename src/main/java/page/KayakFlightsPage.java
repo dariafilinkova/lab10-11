@@ -37,11 +37,13 @@ public class KayakFlightsPage extends AbstractPage {
 
     @Override
     public KayakFlightsPage openPage() {
+        logger.info("was opened flightCar");
         driver.get(PAGE_URL);
         return this;
     }
 
     public KayakFlightsPage clickOnChangeAdults() {
+        logger.info("click change number of adults");
         WebElement searchBtn = findByLocatorWithClickableCondition(changeNumberOFAdultsButton);
         searchBtn.click();
         return this;
@@ -65,7 +67,6 @@ public class KayakFlightsPage extends AbstractPage {
         return this;
     }
 
-
     public KayakFlightsPage incrementNumberOfAdults() {
         WebElement searchBtn = findByLocatorWithClickableCondition(numberOFAdults);
         searchBtn.click();
@@ -81,7 +82,6 @@ public class KayakFlightsPage extends AbstractPage {
         destination.click();
         return this;
     }
-
 
     public KayakFlightsPage enterDestinationFrom(JourneyData journeyData) {
         WebElement destination = findByLocatorWithClickableCondition(fieldDestinationFrom);
@@ -135,17 +135,10 @@ public class KayakFlightsPage extends AbstractPage {
     }
 
     public KayakFlightsPage clickOnSearchButton() {
+        logger.info("click search");
         WebElement searchBtn = findByLocatorWithClickableCondition(searchButton);
         searchBtn.click();
         return this;
-    }
-
-    public boolean appearErrorFragment() {
-        WebElement errorWindow = findByLocator(errorFragment);
-        if (errorWindow.isDisplayed()) {
-            logger.info("Error window was opened successfully");
-            return true;
-        } else return false;
     }
 
     public String getTextFromErrorFragment() {

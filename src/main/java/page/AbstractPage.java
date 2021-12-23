@@ -48,10 +48,6 @@ public abstract class AbstractPage
         List<WebElement> element = findAllByLocator(locator);
         return element.get(0);
     }
-    public WebElement getSecondElement(By locator){
-        List<WebElement> element = findAllByLocator(locator);
-        return element.get(1);
-    }
 
     public List<WebElement> getElementList(By locator){
         List<WebElement> element = findAllByLocator(locator);

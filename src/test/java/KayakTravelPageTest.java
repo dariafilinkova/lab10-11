@@ -1,9 +1,7 @@
-import model.JourneyData;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.KayakTravelRestrictionsPage;
-import service.JourneyCreator;
 import service.UserCreator;
 
 public class KayakTravelPageTest extends CommonConditions{

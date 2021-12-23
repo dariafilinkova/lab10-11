@@ -1,6 +1,4 @@
-import model.JourneyData;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.KayakCarPage;
 import page.KayakResultCarPage;
