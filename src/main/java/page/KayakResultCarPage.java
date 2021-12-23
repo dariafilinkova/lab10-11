@@ -22,6 +22,6 @@ public class KayakResultCarPage extends AbstractPage {
     }
 
     public List<WebElement> getListOfCars() {
-        return  getElementList(listOfCars);
+        return getElementList(listOfCars);
     }
 }

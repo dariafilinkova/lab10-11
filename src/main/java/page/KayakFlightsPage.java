@@ -1,6 +1,8 @@
 package page;
 
 import model.JourneyData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +11,8 @@ import service.JourneyCreator;
 
 public class KayakFlightsPage extends AbstractPage {
     private static final String PAGE_URL = "https://www.kayak.com/flights";
+    private static final Logger logger = LogManager.getLogger();
+
     private final By changeNumberOFAdultsButton = By.xpath("//div[@role='button' and @tabindex='0' and  @class='S9tW S9tW-pres-default']");
     private final By numberOFAdults = By.xpath("//div[@class='bCGf']//button[contains(@aria-label,'Decrement')]");
     private final By errorMessage = By.xpath("//span[@class='cAWq-message']");
@@ -21,8 +25,10 @@ public class KayakFlightsPage extends AbstractPage {
     private final By chosenDestinationToSameAsFrom = By.xpath("//li[contains(@aria-label,'Lisbon, Portugal')]");
     private final By changeButton = By.xpath("//div[contains(@class,'jqOP')]");
     private final By inputDestinationTo = By.xpath("//div[contains(text(),'To?')]");
-    private final By destinationAfterClickingChange=By.xpath("//div[@class='vvTc-item-value']");
+    private final By destinationAfterClickingChange = By.xpath("//div[@class='vvTc-item-value']");
     private final By searchButton = By.xpath("//button[contains(@aria-label,'Search')]");
+    private final By errorFragment = By.xpath("//div[@class='IGR4-error']");
+
 
     public KayakFlightsPage(WebDriver driver) {
         super(driver);
@@ -101,12 +107,12 @@ public class KayakFlightsPage extends AbstractPage {
         return this;
     }
 
-    public KayakFlightsPage fillDestinations(){
+    public KayakFlightsPage fillDestinations() {
         JourneyData journeyData = JourneyCreator.journeyFromProperty();
         JourneyData journeyDataTo = JourneyCreator.journeyFromPropertyTo();
         clickDestinationFrom();
         enterDestinationFrom(journeyData);
-        clickOnChosenDestinationFrom() ;
+        clickOnChosenDestinationFrom();
         clickDestinationTo();
         enterDestinationTo(journeyDataTo);
         clickOnChosenDestinationTo();
@@ -117,22 +123,33 @@ public class KayakFlightsPage extends AbstractPage {
         return getElementText(destinationAfterClickingChange);
     }
 
-    public KayakFlightsPage fillSameDestinations(){
+    public KayakFlightsPage fillSameDestinations() {
         JourneyData journeyData = JourneyCreator.journeyFromProperty();
         clickDestinationFrom();
         enterDestinationFrom(journeyData);
-        clickOnChosenDestinationFrom() ;
+        clickOnChosenDestinationFrom();
         clickDestinationTo();
         enterDestinationTo(journeyData);
         clickOnChosenDestinationToSameAsFrom();
         return this;
     }
 
-    public KayakFlightsPage clickOnSearchButton(){
+    public KayakFlightsPage clickOnSearchButton() {
         WebElement searchBtn = findByLocatorWithClickableCondition(searchButton);
         searchBtn.click();
         return this;
     }
 
+    public boolean appearErrorFragment() {
+        WebElement errorWindow = findByLocator(errorFragment);
+        if (errorWindow.isDisplayed()) {
+            logger.info("Error window was opened successfully");
+            return true;
+        } else return false;
+    }
+
+    public String getTextFromErrorFragment() {
+        return getElementText(errorFragment);
+    }
 
 }

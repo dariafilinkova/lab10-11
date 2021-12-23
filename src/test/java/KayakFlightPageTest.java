@@ -2,9 +2,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.KayakFlightsPage;
 
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.empty;
+
 public class KayakFlightPageTest extends CommonConditions {
 
     private final String EXPECTED_DESTINATION = "Paris, France (PAR)";
+    private final String EXPECTED_ERROR_MESSAGE = "Searches need at least 1 traveler";
+    private final String EXPECTED_ERROR_MESSAGE_FRAGMENT = "Please enter unique 'From' and 'To' airports.";
 
     //@Test //must be the 1st
     public void testChangeDestinations() {
@@ -15,15 +21,27 @@ public class KayakFlightPageTest extends CommonConditions {
         Assert.assertEquals(flightsPage.getTextFromDestinationFrom(),
                 EXPECTED_DESTINATION);
     }
+
     //@Test
-    public void testSameInputDestinations() {
+    public void testNullNumberOfAdults() {
+        KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
+                .openPage()
+                .clickOnChangeAdults()
+                .incrementNumberOfAdults();
+        Assert.assertEquals(flightsPage.getTextFromErrorMessage(),
+                EXPECTED_ERROR_MESSAGE);
+    }
+
+    @Test
+    public void testSameInputDestinations() throws InterruptedException {
         KayakFlightsPage flightsPage = new KayakFlightsPage(driver)
                 .openPage()
                 .fillSameDestinations()
-                .clickOnSearchButton()
-                ;
-       // Assert.assertEquals(flightsPage.getTextFromDestinationFrom(),
-         //       EXPECTED_DESTINATION);
+                .clickOnSearchButton();
+        //Thread.sleep(1000);
+        Assert.assertEquals(flightsPage.getTextFromErrorFragment(),
+                EXPECTED_ERROR_MESSAGE_FRAGMENT);
+        //Assert.assertTrue(flightsPage.appearErrorFragment());
 
     }
 }

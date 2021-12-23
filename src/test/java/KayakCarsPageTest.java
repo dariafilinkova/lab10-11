@@ -4,19 +4,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.KayakCarPage;
 import page.KayakResultCarPage;
-import service.JourneyCreator;
-
-import java.util.Collection;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
 public class KayakCarsPageTest extends CommonConditions {
 
-    @Test
+    //@Test
     public void testSearchCarWithoutEnteringDate() {
         KayakCarPage carPage = new KayakCarPage(driver)
                 .openPage()
@@ -27,5 +23,4 @@ public class KayakCarsPageTest extends CommonConditions {
                 .getListOfCars();
         assertThat(listOfCars,not(empty()));
     }
-
 }

@@ -16,8 +16,8 @@ public class KayakCarPage extends AbstractPage {
 
     private final By searchButton = By.xpath("//button[@title='Search cars']");
     private final By destination = By.xpath("//div[@aria-label='Pick-up location']");
-    private final By enteredDestination= By.xpath("//input[@class='k_my-input' and @tabindex='-1']");
-    private final By foundedDestination=By.xpath("//div[@class='JyN0-name-container']");
+    private final By enteredDestination = By.xpath("//input[@class='k_my-input' and @tabindex='-1']");
+    private final By foundedDestination = By.xpath("//div[@class='JyN0-name-container']");
 
 
     public KayakCarPage(WebDriver driver) {
@@ -60,7 +60,7 @@ public class KayakCarPage extends AbstractPage {
         return this;
     }
 
-    public KayakCarPage fillDestination(){
+    public KayakCarPage fillDestination() {
         JourneyData journeyData = JourneyCreator.journeyFromProperty();
         clickOnDestination();
         enterDestination(journeyData);

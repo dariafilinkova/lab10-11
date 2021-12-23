@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-public class KayakTravelRestrictionsPage extends AbstractPage{
+public class KayakTravelRestrictionsPage extends AbstractPage {
 
-    public static String PAGE_URL ="https://www.kayak.com/travel-restrictions";
+    public static String PAGE_URL = "https://www.kayak.com/travel-restrictions";
     private final By emailField = By.xpath("//input[contains(@placeholder,'Enter your email address')]");
     private final By fieldSelectCountry = By.xpath("//input[contains(@placeholder,'Select countries')]");
     private final By allCountries = By.xpath("//input[contains(@id,'all-countries')]");
@@ -43,6 +43,7 @@ public class KayakTravelRestrictionsPage extends AbstractPage{
         countries.click();
         return this;
     }
+
     public KayakTravelRestrictionsPage getAlerts() {
         WebElement buttonToGetAlerts = findByLocator(buttonGetAlerts);
         buttonToGetAlerts.click();
@@ -53,7 +54,5 @@ public class KayakTravelRestrictionsPage extends AbstractPage{
         WebElement message = findByLocator(messageAfterSending);
         return message.isDisplayed();
     }
-
-
 
 }
