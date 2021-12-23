@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="carsPage" verbose="1" >
+    <test name="CarsPageTest"   >
+        <classes>
+            <class name="KayakCarsPageTest" />
+        </classes>
+    </test>
+</suite>
