@@ -12,7 +12,7 @@ public abstract class AbstractPage
 {
     protected static WebDriver driver;
     protected abstract AbstractPage openPage();
-    protected static int WAIT_TIMEOUT_SECONDS = 5;
+    protected static int WAIT_TIMEOUT_SECONDS = 500;
 
     protected AbstractPage(WebDriver driver)
     {
